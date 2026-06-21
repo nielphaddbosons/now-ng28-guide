@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ng28 · 专题介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f1f6f9;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      color: #1d2b3a;
+      line-height: 1.6;
+      padding: 0 16px;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+
+    /* hero 背景横幅 — 杂志风格 */
+    .hero {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f3b42 0%, #1d6d6b 40%, #2f9b8a 100%);
+      padding: 64px 48px 56px;
+      margin-bottom: 48px;
+      box-shadow: 0 18px 36px -12px rgba(0, 70, 70, 0.25);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 75% 20%, rgba(255,255,255,0.08) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: white;
+      line-height: 1.2;
+      max-width: 680px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #b5e6d9, #c9f0e6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      margin-top: 18px;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 560px;
+      position: relative;
+      z-index: 2;
+      font-weight: 350;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-meta {
+      margin-top: 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(4px);
+      padding: 10px 22px 10px 20px;
+      border-radius: 60px;
+      border: 1px solid rgba(255,255,255,0.15);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-meta span {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-meta .dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #6fcfba;
+      border-radius: 50%;
+    }
+
+    /* 网格卡片区域 — 三栏自然介绍 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 26px;
+      box-shadow: 0 8px 20px -8px rgba(0, 40, 40, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border: 1px solid rgba(100, 170, 160, 0.12);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -12px rgba(0, 80, 75, 0.18);
+    }
+
+    .card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      background: #dff3ef;
+      border-radius: 18px;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #0b3b3a;
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      color: #2e4253;
+      font-size: 0.96rem;
+      margin-bottom: 10px;
+    }
+
+    .card .highlight {
+      display: inline-block;
+      background: #e1f3ef;
+      padding: 0 6px;
+      color: #0a4d4a;
+      font-weight: 500;
+      border-radius: 6px;
+    }
+
+    /* 品牌说明/背景区域 — 类似杂志的引言 block */
+    .context-block {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 36px 40px;
+      margin-bottom: 48px;
+      border-left: 7px solid #2c9e8e;
+      box-shadow: 0 4px 14px rgba(0, 30, 30, 0.04);
+    }
+
+    .context-block p {
+      font-size: 1.04rem;
+      max-width: 780px;
+      color: #1b3642;
+    }
+
+    .context-block strong {
+      color: #115c56;
+      font-weight: 600;
+    }
+
+    .context-block .tag {
+      display: inline-block;
+      background: #1c7068;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 40px;
+      letter-spacing: 0.5px;
+      margin-right: 8px;
+    }
+
+    /* FAQ 摘要 — 简洁的问答卡片 */
+    .faq-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 24px;
+      padding: 24px 22px;
+      border: 1px solid #d6e8e3;
+      box-shadow: 0 2px 8px rgba(0, 30, 20, 0.02);
+    }
+
+    .faq-item .q {
+      font-weight: 600;
+      color: #09433f;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .faq-item .q::before {
+      content: '▹';
+      color: #2a9b8a;
+      font-size: 1.2rem;
+    }
+
+    .faq-item .a {
+      color: #2a4255;
+      font-size: 0.92rem;
+      padding-left: 22px;
+    }
+
+    /* 页尾访问提示 — 句子中自然嵌入链接 */
+    .footer-note {
+      text-align: center;
+      padding: 36px 20px 16px;
+      border-top: 1px solid #cfe2dd;
+      margin-top: 12px;
+    }
+
+    .footer-note p {
+      font-size: 1rem;
+      color: #1c3f43;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .footer-note a {
+      color: #10635b;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1.5px solid #3cb0a0;
+      padding-bottom: 1px;
+      transition: all 0.15s;
+    }
+
+    .footer-note a:hover {
+      color: #064a43;
+      border-bottom-color: #064a43;
+    }
+
+    .footer-note .small-meta {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: #577973;
+      letter-spacing: 0.3px;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 40px 24px 40px;
+        border-radius: 24px;
+      }
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-sub {
+        font-size: 1rem;
+      }
+      .grid-cards {
+        gap: 18px;
+      }
+      .card {
+        padding: 24px 20px;
+      }
+      .context-block {
+        padding: 28px 22px;
+      }
+      .faq-summary {
+        grid-template-columns: 1fr;
+      }
+      .footer-note p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+      .hero-meta {
+        flex-wrap: wrap;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- 首页横幅 hero -->
+    <div class="hero">
+      <div class="hero-title">
+        关于 <span>ng28</span> · 站点说明
+      </div>
+      <div class="hero-sub">
+        一份基于实际运营背景的概述，从可信度与内容定位出发，呈现平台的基本轮廓与服务方向。
+      </div>
+      <div class="hero-meta">
+        <span class="dot"></span>
+        <span>专题概述 · 2025</span>
+        <span style="opacity:0.5;">|</span>
+        <span>简洁·专业</span>
+      </div>
+    </div>
+
+    <!-- 三段自然介绍 — 网格卡片 -->
+    <div class="grid-cards">
+      <div class="card">
+        <div class="card-icon">📋</div>
+        <h3>站点定位与内容</h3>
+        <p><span class="highlight">ng28</span> 面向对信息聚合与实用工具感兴趣的用户，提供结构化的分类与更新。内容涵盖多个垂直方向，并保持适度的更新频率。</p>
+        <p>界面采用扁平导航，信息层级清晰，适合快速浏览与按需查阅。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🔍</div>
+        <h3>可信度与背景</h3>
+        <p>运营团队持续维护域名解析与安全证书，服务稳定性经过多轮验证。非镜像或短期项目，具备长期运营记录。</p>
+        <p>页面无侵入式脚本，访问体验干净，符合基本的数据保护惯例。</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">⚙️</div>
+        <h3>适用场景举例</h3>
+        <p>日常信息查询、参考资源收录、跨设备访问。支持主流浏览器与移动端自适应，无需额外配置。</p>
+        <p>无论用于内容检索还是功能参考，<span class="highlight">ng28</span> 都维持一致的响应速度。</p>
+      </div>
+    </div>
+
+    <!-- 背景说明 — 杂志式引言 -->
+    <div class="context-block">
+      <p>
+        <span class="tag">背景</span> 
+        <strong>关于 ng28 的说明</strong> — 该站点自上线以来，以实用内容为核心，不依赖夸大宣传或诱导点击。团队在域名续费、内容审核、链接有效性方面保持常规检查，尽力降低信息衰减。对于首次接触的用户，建议先浏览公开栏目，感受其内容组织方式。
+      </p>
+      <p style="margin-top: 18px;">
+        同时，域名 <strong>now-ng28.com</strong> 采用标准 https 协议，数据传输过程加密。整体架构简洁，未发现异常重定向或隐藏部件。本文档旨在提供客观摘要，帮助读者自行判断其适用性。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 — 3个自然问答 -->
+    <div class="faq-summary">
+      <div class="faq-item">
+        <div class="q">是否长期维护？</div>
+        <div class="a">根据历史记录与内容时间戳，站点保持数月以上的更新间隔，未出现长期停摆。运营持续性属于中等偏上水平。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">移动端体验如何？</div>
+        <div class="a">采用响应式布局，在手机与平板上自动调整字体与间距。按钮尺寸合理，无需频繁缩放即可阅读。</div>
+      </div>
+      <div class="faq-item">
+        <div class="q">内容来源可靠吗？</div>
+        <div class="a">站点多数内容为原创或经授权的汇编，且不包含虚假促销、误导性声明。建议用户依据自身需求交叉验证。</div>
+      </div>
+    </div>
+
+    <!-- 页尾访问提示 — 句子中嵌入链接 -->
+    <div class="footer-note">
+      <p>
+        若需直接浏览站点，可访问 <a href="https://now-ng28.com">ng28</a>，页面结构与上述描述一致。建议通过主流浏览器访问以获得完整体验。
+      </p>
+      <div class="small-meta">
+        专题页面 · 仅作客观介绍
+      </div>
+    </div>
+  </div>
+</body>
+</html>
