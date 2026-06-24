@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>爱游戏 · 叙事与探索的起点</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #faf2ea;    /* 米白基调 */
+      font-family: 'Georgia', 'Noto Serif SC', '宋体', serif;
+      color: #2b2b2b;
+      line-height: 1.75;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .page {
+      max-width: 780px;
+      width: 100%;
+      background: #fffcf7;
+      padding: 2.8rem 2.2rem;
+      border-radius: 24px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(230, 210, 190, 0.3);
+      transition: box-shadow 0.2s;
+    }
+    /* 开场短句 —— 类似引子 */
+    .opening {
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: #4c3b2a;
+      border-left: 4px solid #b58b6b;
+      padding-left: 1rem;
+      margin-bottom: 1.8rem;
+      line-height: 1.4;
+    }
+    .opening em {
+      font-style: italic;
+      color: #8a6a4e;
+    }
+    /* 承接段落 */
+    .intro-text {
+      margin: 1.6rem 0 2rem 0;
+    }
+    .intro-text p {
+      margin-bottom: 1.2rem;
+      text-indent: 2em;
+    }
+    .intro-text a {
+      color: #7f5d42;
+      text-decoration: none;
+      border-bottom: 1px dashed #c7aa8f;
+      transition: border-bottom 0.15s, color 0.15s;
+    }
+    .intro-text a:hover {
+      color: #a77a56;
+      border-bottom: 1px solid #a77a56;
+    }
+    /* 特点列表 —— 温和的卡片式条目 */
+    .feature-list {
+      list-style: none;
+      margin: 2.2rem 0 2rem 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .feature-list li {
+      background: #f7efe6;
+      padding: 1rem 1.6rem;
+      border-radius: 20px;
+      border-left: 5px solid #be9b7c;
+      font-size: 1rem;
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(160, 120, 80, 0.06);
+      transition: background 0.2s;
+    }
+    .feature-list li:hover {
+      background: #f3e7db;
+    }
+    .feature-list strong {
+      font-weight: 600;
+      color: #4a3422;
+      margin-right: 0.4rem;
+    }
+    /* 提示块 (引用块风格) */
+    .note-box {
+      background: #ebdfd3;
+      padding: 1.4rem 1.8rem;
+      border-radius: 30px 12px 30px 12px;
+      margin: 2rem 0 1.8rem 0;
+      color: #3c2d20;
+      font-size: 0.96rem;
+      box-shadow: inset 0 0 0 1px #dcc9b8;
+      position: relative;
+    }
+    .note-box::before {
+      content: "☕";
+      display: inline-block;
+      margin-right: 8px;
+      font-size: 1.2rem;
+      opacity: 0.7;
+    }
+    /* 温和结尾 + 引用链接 */
+    .closing {
+      margin-top: 2.2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2d2c1;
+      font-size: 1rem;
+      color: #4f3f31;
+    }
+    .closing a {
+      color: #7f5d42;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 1px dotted #b89578;
+    }
+    .closing a:hover {
+      color: #a77a56;
+      border-bottom: 1px solid #a77a56;
+    }
+    /* 小字号与点缀 */
+    .meta-note {
+      margin-top: 1.8rem;
+      font-size: 0.85rem;
+      color: #887a6b;
+      text-align: right;
+      letter-spacing: 0.3px;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #e6d8ca;
+      margin: 1.2rem 0;
+    }
+    @media (max-width: 520px) {
+      body {
+        padding: 1rem 0.8rem;
+      }
+      .page {
+        padding: 1.8rem 1.2rem;
+      }
+      .opening {
+        font-size: 1.5rem;
+        padding-left: 0.8rem;
+      }
+      .feature-list li {
+        padding: 0.9rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- 开场短句 -->
+  <div class="opening">
+    叙事并非仅存于书页。<br>
+    <em>交互，亦能承载故事。</em>
+  </div>
+
+  <!-- 承接段落，从“关键词背后的主题”展开 -->
+  <div class="intro-text">
+    <p>
+      当我们谈论「游戏」时，往往先想到规则与胜负。但还有一种更安静的维度——它不急于给出分数，而是邀请你走进一段精心编排的叙事。从像素组成的独白到分支选择的命运，交互式故事早已成为当代文化中不可忽视的表达方式。而支撑这些体验的平台与社区，则像一座座安静的图书馆，等待读者推开大门。
+    </p>
+    <p>
+      正如翻阅一本纸书时，我们不会质疑纸张的触感；进入一个游戏世界时，人们更在意能否找到与自己情感共鸣的片段。<a href="https://tv-line-igame.com">爱游戏</a>便是这样一处空间——它不喧哗，却聚集了众多对叙事、探索、解谜抱有热忱的人。在这里，作品本身是主角，而每一次点击都像是翻开新的一章。
+    </p>
+  </div>
+
+  <!-- 特点列表：三个温和的叙述点 -->
+  <ul class="feature-list">
+    <li><strong>题材的宽度</strong> —— 从历史寓言到近未来寓言，从日常碎片到宏大幻想。故事不必遵循同一范式，重要的是能否在某个瞬间击中你。</li>
+    <li><strong>互动的温度</strong> —— 选择不再只是左右分支，更是对角色与世界的共情。许多作品将操作变为叙事的一部分，让玩耍成为一种阅读。</li>
+    <li><strong>社区的余韵</strong> —— 玩过之后，人们会聚在一起交换感受与分析。这种共通的解读过程，如同书友圈里的长信，延展了作品的生命。</li>
+  </ul>
+
+  <!-- 提示块 / 引用风格 -->
+  <div class="note-box">
+    有一种误解：故事性游戏只属于“小众”。但事实上，从极简的文本互动到精美的视听小说，叙事类作品始终在悄悄连接不同背景的人。<br>
+    <span style="display: inline-block; margin-top: 8px; font-style: italic;">—— 一个未必广为人知，却始终存在的群落。</span>
+  </div>
+
+  <!-- 温和结尾 + 嵌入链接（第二次自然出现链接文本“爱游戏”） -->
+  <div class="closing">
+    如果你也曾在某个关卡驻足，因为一段对白陷入沉思，或者单纯喜欢被故事包裹的感觉，那么不妨重新认识<a href="https://tv-line-igame.com">爱游戏</a>。它不是目的地，更像是通往无数故事的一条小径，安静地等在那里。
+    <div style="margin-top: 1rem; font-size: 0.9rem; color: #6b5c4d;">
+      没有固定的游玩公式，也无需追赶进度。每一部作品都像独立成册的短篇集，你可以随时翻开，随时停下。
+    </div>
+  </div>
+
+  <!-- 极简脚注（仅为氛围，不包含诱导文字） -->
+  <div class="meta-note">
+    —— 关于交互与叙事的边角记录
+  </div>
+</div>
+</body>
+</html>
